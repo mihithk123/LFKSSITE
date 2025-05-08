@@ -124,6 +124,39 @@ const galleryItems: GalleryItem[] = [
     },
     category: 'Projects',
     date: '2024-04-05'
+  },
+  {
+    id: '10',
+    title: '',
+    description: '',
+    media: {
+      type: 'image',
+      url: '/gal1.jpeg'
+    },
+    category: 'Projects',
+    date: '2024-04-05'
+  },
+  {
+    id: '11',
+    title: '',
+    description: '',
+    media: {
+      type: 'image',
+      url: '/21.jpg'
+    },
+    category: 'Projects',
+    date: '2024-04-05'
+  },
+  {
+    id: '12',
+    title: '',
+    description: '',
+    media: {
+      type: 'image',
+      url: '/vp3.jpg'
+    },
+    category: 'Projects',
+    date: '2024-04-05'
   }
 ];
 
