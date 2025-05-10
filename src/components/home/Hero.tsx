@@ -13,6 +13,21 @@ const Hero = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
+  // Handler functions for client-side navigation without page reload
+  const navigateToMission = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Use client-side routing - this approach works with React Router and most React frameworks
+    window.history.pushState({}, "", "/vision");
+    // Dispatch navigation event to trigger router updates
+    window.dispatchEvent(new Event('popstate'));
+  };
+  
+  const navigateToProjects = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.history.pushState({}, "", "/projects");
+    window.dispatchEvent(new Event('popstate'));
+  };
+
   return (
     <div 
       ref={ref}
@@ -81,22 +96,22 @@ const Hero = () => {
             }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <motion.a
+            <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="/vision"
+              onClick={navigateToMission}
               className="bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg shadow-lg shadow-primary-500/20 flex items-center justify-center gap-2 transition-all duration-300"
             >
               Explore our mission <ArrowRight size={18} />
-            </motion.a>
-            <motion.a
+            </motion.button>
+            <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="/projects"
+              onClick={navigateToProjects}
               className="bg-white hover:bg-gray-50 text-gray-800 font-medium py-3 px-6 rounded-lg shadow-md flex items-center justify-center gap-2 transition-all duration-300 border border-gray-200"
             >
               Learn more
-            </motion.a>
+            </motion.button>
           </motion.div>
         </div>
       </motion.div>
